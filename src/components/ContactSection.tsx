@@ -1,55 +1,87 @@
-'use client';
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${process.env.NEXT_PUBLIC_GMAIL}&su=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(formData.name)}%0AEmail:%20${encodeURIComponent(
+    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${
+      process.env.NEXT_PUBLIC_GMAIL
+    }&su=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(
+      formData.name
+    )}%0AEmail:%20${encodeURIComponent(
       formData.email
     )}%0AMessage:%20${encodeURIComponent(formData.message)}`;
     window.location.href = mailtoLink;
   };
 
   return (
-    <section className="w-full flex flex-col space-y-10 justify-center items-center container" id="contact">
-      <h2 className="text-center uppercase font-medium text-[var(--primary-color)] text-5xl">Contact</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-7 mx-auto w-full md:w-[70%]">
-        <div className="w-full grid grid-cols-12 bg-[var(--primary-color)] items-center p-3">
-          <label htmlFor="name" className="col-span-12  md:col-span-3">
-            <span className="text-2xl md:text-3xl uppercase text-white font-medium">Your Name</span>
-          </label>
-          <input type="text" id="name" name="name" className="col-span-12 md:col-span-9 bg-white w-full border-none outline-none text-xl" placeholder="e.g Joe Biden" value={formData.name} onChange={handleChange} required />
+    <div
+      className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800"
+      id="contact"
+    >
+      <div className="flex flex-col justify-between">
+        <div className="space-y-2">
+          <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
+            Let's talk!
+          </h2>
+          <div className="dark:text-gray-600">
+            Vivamus in nisl metus? Phasellus.
+          </div>
         </div>
-
-        <div className="w-full grid grid-cols-12 bg-[var(--primary-color)] items-center p-3">
-          <label htmlFor="email" className="col-span-12  md:col-span-3">
-            <span className="text-2xl md:text-3xl uppercase text-white font-medium">Your Email</span>
+        <img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />
+      </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label htmlFor="name" className="text-sm">
+            Full name
           </label>
-          <input type="email" id="email" name="email" className="col-span-12 md:col-span-9 bg-white w-full border-none outline-none text-xl" placeholder="e.g joe.biden@example.com" value={formData.email} onChange={handleChange} required />
+          <input
+            id="name"
+            type="text"
+            placeholder=""
+            className="w-full p-3 rounded dark:bg-gray-100"
+          />
         </div>
-
-        <div className="w-full grid grid-cols-12 bg-[var(--primary-color)] items-start p-3">
-          <label htmlFor="message" className="col-span-12  md:col-span-3">
-            <span className="text-2xl md:text-3xl uppercase text-white font-medium">Message</span>
+        <div>
+          <label htmlFor="email" className="text-sm">
+            Email
           </label>
-          <textarea id="message" name="message" rows={5} className="col-span-12 md:col-span-9 bg-white w-full text-xl p-2 outline-none" placeholder="Your message here..." value={formData.message} onChange={handleChange} required />
+          <input
+            id="email"
+            type="email"
+            className="w-full p-3 rounded dark:bg-gray-100"
+          />
         </div>
-
-        <button type="submit" className="bg-[var(--primary-color)] text-white uppercase text-2xl font-medium py-2 px-5 w-full md:w-fit mx-auto">
+        <div>
+          <label htmlFor="message" className="text-sm">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            className="w-full p-3 rounded dark:bg-gray-100"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-violet-600 dark:text-gray-50"
+        >
           Send Message
         </button>
       </form>
-    </section>
+    </div>
   );
 }
