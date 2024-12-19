@@ -35,7 +35,7 @@ export default function ContactSection() {
       <div className="flex flex-col justify-between">
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
-            Let's talk!
+            Lets talk!
           </h2>
           <div className="dark:text-gray-600">
             Vivamus in nisl metus? Phasellus.
