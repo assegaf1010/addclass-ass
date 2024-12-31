@@ -5,9 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #0B2F9F;
-  --secondary-color: #161D6F;
-  --third-color: #F8FAFC;
+  --primary-color: #000000;
+  --secondary-color: #434343;
+  --third-color:rgb(0, 0, 0);
 }
 html {
   scroll-behavior: smooth;

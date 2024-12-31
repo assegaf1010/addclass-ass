@@ -9,11 +9,15 @@ export const DATA_NAV: IDataNav[] = [
     path: '/',
   },
   {
+    name: 'About',
+    path: '#about',
+  },
+  {
     name: 'Project',
-    path: '/#project',
+    path: '#project',
   },
   {
     name: 'Contact',
-    path: '/#contact',
+    path: '/#berita',
   },
 ];

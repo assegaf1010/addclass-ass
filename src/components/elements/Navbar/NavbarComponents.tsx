@@ -6,7 +6,7 @@ import { DATA_NAV } from './DATA_NAV';
 
 export function NavbarComponents() {
   return (
-    <div className="w-full fixed z-50 border-b shadow-sm bg-[var(--primary-color)] bg-gradient-to-r from-bg-[var(--secondary-color)]">
+    <div className="w-full fixed z-50 fixed w-full top-0 z-50 bg-white/10 backdrop-blur-lg shadow-lg">
       <Navbar fluid rounded className="text-[var(--third-color)] top-0  container bg-transparent">
         <Navbar.Brand as={Link} href="/">
           <span className="self-center whitespace-nowrap text-3xl font-medium dark:text-white ">Aassgf</span>
